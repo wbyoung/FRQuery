@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="2057" systemVersion="12C3012" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Book" syncable="YES">
+        <attribute name="published" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="author" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Person" inverseName="books" inverseEntity="Person" syncable="YES"/>
+        <relationship name="indexes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Index" inverseName="book" inverseEntity="Index" syncable="YES"/>
+    </entity>
+    <entity name="Index" syncable="YES">
+        <attribute name="page" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="book" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Book" inverseName="indexes" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <entity name="Person" representedClassName="FRPerson" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="books" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Book" inverseName="author" inverseEntity="Book" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Person" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="Book" positionX="160" positionY="192" width="128" height="105"/>
+        <element name="Index" positionX="160" positionY="192" width="128" height="90"/>
+    </elements>
+</model>
